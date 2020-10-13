@@ -1,5 +1,5 @@
 const rootElment = document.querySelector('#root');
 
-rootElment.insertAdjacentElement('beforeend', `
+rootElment.insertAdjacentHTML('beforeend', `
 <h1> Hello welcome to the new world</h1>
 `);
