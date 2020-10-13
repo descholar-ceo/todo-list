@@ -1,27 +1,37 @@
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+require('dotenv').config();
 
-module.exports = {
-  entry: './src/js/index.js',
+module.exports = (env) => ({
+  context: __dirname,
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    publicPath: '/',
   },
+  mode: env ? 'production' : 'development',
+  devServer: {
+    inline: true,
+    port: process.env.PORT,
+    contentBase: path.join(__dirname, 'dist'),
+  },
+
   module: {
     rules: [{
-        test: /\.js/,
-        use: 'babel-loader',
-      },
-      {
-        test: /\.css/,
+        test: /\.(css)$/,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif|jpeg|)$/,
-        use: [
-          'file-loader',
-        ],
+        test: /\.(scss)$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpg|svg|gif|jpeg)?$/,
+        use: 'file-loader',
       },
     ],
   },
@@ -31,5 +41,16 @@ module.exports = {
       title: 'ToDo App',
       template: './src/html/index.html',
     }),
+    new HtmlWebPackPlugin({
+      template: path.resolve(__dirname, 'public/index.html'),
+      filename: 'index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
-};
+  performance: {
+    hints: false,
+  }
+})
