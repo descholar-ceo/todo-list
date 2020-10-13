@@ -4,6 +4,9 @@
   "description": "This project is gotten from https://www.theodinproject.com/courses/javascript/lessons/todo-list",
   "main": "./src/index.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack --mode=development --watch",
+    "dev-start": "webpack-dev-server",
     "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
     "eslint-f": "npx eslint . --fix"
   },
@@ -12,7 +15,7 @@
     "Javascript-modules",
     "OOP"
   ],
-  "author": "descholar-ceo <emmanuellamugi@gmail.com>",
+  "author": "descholar-ceo <emmanuellamugi@gmail.com> and marylene <marylene.sawyer@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.11.0",
@@ -20,6 +23,9 @@
     "eslint-plugin-import": "^2.22.1",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.18.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
