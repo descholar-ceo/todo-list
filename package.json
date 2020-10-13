@@ -38,6 +38,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "bootstrap": "^4.5.2",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }

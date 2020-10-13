@@ -34,6 +34,10 @@ module.exports = (env) => ({
         test: /\.(png|jpg|svg|gif|jpeg)?$/,
         use: 'file-loader',
       },
+      {
+        test: /bootstrap\/dist\/js\/umd\//,
+        use: 'imports-loader?jQuery=jquery'
+      },
     ],
   },
   plugins: [
