@@ -1,13 +1,12 @@
 class Projects {
-  constructor(title) {
-    this.title = title;
+  constructor() {
     this.allProjects = localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : [];
   }
 
-  addProject = () => {
+  addProject = (thisTitle = '') => {
     const newProject = {
       projectId: this.allProjects.length + 1,
-      title: this.title,
+      title: thisTitle,
       todos: [],
     };
     this.allProjects.push(newProject);
@@ -19,6 +18,7 @@ class Projects {
   addTodoToProject = (projectId, todo) => this.getIndivualProject(projectId).todos.push(todo);
 
   getAllTodosOfProject = (projectId) => this.getIndivualProject(projectId).todos
+  allProjects = () => this.allProjects;
 }
 
 export default Projects;

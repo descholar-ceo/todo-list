@@ -8,7 +8,7 @@ class NavBarUI {
     navUl.setAttribute('class', 'flex-horizontal-center width-100 width-md-60');
     const navLiHome = document.createElement('li');
     navLiHome.setAttribute('class', 'padding-1 margin-x-1 active home');
-    navLiHome.setAttribute('id', 'nav-item');
+    navLiHome.setAttribute('id', 'nav-item-home');
     const navLiContact = document.createElement('li');
     navLiContact.setAttribute('class', 'padding-1 margin-x-1 contact');
     navLiContact.setAttribute('id', 'nav-item');
