@@ -21,13 +21,13 @@ submitBtn.addEventListener('click', () => {
   projectsObj.addProject(projectName.value);
 });
 
+const clear = () => {
+  content.innerHTML = '';
+  NavBarUI.displayNavbar(content);
+};
+
 homeBtn.addEventListener('click', () => {
   clear();
   const projectsList = projectsObj.allProjects;
   HomeUI.displayProjectsList(projectsList, content);
 });
-
-const clear = () => {
-  content.innerHTML = '';
-  NavBarUI.displayNavbar(content);
-};

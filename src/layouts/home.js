@@ -18,8 +18,7 @@ class home {
       projectDiv.appendChild(toDos);
 
       homeDivWrapper.appendChild(projectDiv);
-
-    })
+    });
     rootElement.appendChild(homeDivWrapper);
   }
 }

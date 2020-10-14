@@ -18,6 +18,7 @@ class Projects {
   addTodoToProject = (projectId, todo) => this.getIndivualProject(projectId).todos.push(todo);
 
   getAllTodosOfProject = (projectId) => this.getIndivualProject(projectId).todos
+
   allProjects = () => this.allProjects;
 }
 
