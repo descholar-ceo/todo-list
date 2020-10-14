@@ -21,19 +21,19 @@ module.exports = (env) => ({
 
   module: {
     rules: [{
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(scss)$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(png|jpg|svg|gif|jpeg)?$/,
-        use: 'file-loader',
-      }
-    ]
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
+    },
+    {
+      test: /\.(scss)$/,
+      exclude: /node_modules/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+    },
+    {
+      test: /\.(png|jpg|svg|gif|jpeg)?$/,
+      use: 'file-loader',
+    },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -49,5 +49,5 @@ module.exports = (env) => ({
   ],
   performance: {
     hints: false,
-  }
+  },
 });

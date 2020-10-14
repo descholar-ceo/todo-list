@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/style.scss';
 
 const content = document.querySelector('#root');
-//create navbar
+// create navbar
 const navEl = document.createElement('nav');
 navEl.setAttribute('class', 'nav-bar navbar');
 const navItems = document.createElement('ul');
@@ -16,4 +16,4 @@ navItems.appendChild(toDoListLink);
 navEl.appendChild(navItems);
 content.append(navEl);
 
-//Create default project and toDos
+// Create default project and toDos
