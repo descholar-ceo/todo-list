@@ -75,3 +75,14 @@ select {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.active {
+  background-color: $secondary-color;
+  color: $white-color;
+}
+
+// backgrounds
+.primary-bg {
+  background-color: $primary-color;
+  color: $white-color;
+}
