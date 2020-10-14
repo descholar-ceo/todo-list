@@ -1,80 +1,82 @@
-  @import 'variables';
-  html {
-    box-sizing: border-box;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  
-  * {
-    border: 0 none;
-    list-style: none outside none;
-    margin: 0;
-    outline: 0 none;
-    padding: 0;
-  }
-  
-  body {
-    padding: 0;
-    margin: 0 auto;
+@import 'variables';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  border: 0 none;
+  list-style: none outside none;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  ul {
     height: 100%;
-    font-size: 16px;
-    line-height: 20px;
-    color: #333;
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
   }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
+
+  li,
+  .fa {
+    color: $white-color;
+    cursor: pointer;
   }
-  
-  a:hover {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-  
-  nav {
-    ul {
-      height: 100%;
-    }
-    li,
-    .fa {
-      color: $white-color;
-      cursor: pointer;
-    }
-  }
-  
-  .project-container {
-    background-color: #6f2929;
-    height: 80px;
-    margin-top: 20px;
-  }
-  
-  .project-container :nth-child(1) {
-    color: #ffffff;
-  }
-  
-  .project-container :nth-child(2) {
-    color: #87ceeb;
-  }
-  
-  .create-project-btn {
-    color: #ffffff;
-    border-radius: 60px;
-  }
-  
-  @import 'media-queries';
-  @import 'utilities';
-  @import 'widths-heights'
+}
+
+.project-container {
+  background-color: #6f2929;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.project-container :nth-child(1) {
+  color: #fff;
+}
+
+.project-container :nth-child(2) {
+  color: #87ceeb;
+}
+
+.create-project-btn {
+  color: #fff;
+  border-radius: 60px;
+}
+
+@import 'media-queries';
+@import 'utilities';
+@import 'widths-heights'
