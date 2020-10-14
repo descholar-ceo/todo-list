@@ -1,5 +1,3 @@
-// import Projects from '../components/project';
-
 class ProjectUI {
     static displayCreateProjectForm = (element) => {
       const formDivWrapper = document.createElement('div');
@@ -29,6 +27,7 @@ class ProjectUI {
 
       const formSubmitBtn = document.createElement('button');
       formSubmitBtn.setAttribute('type', 'button');
+      formSubmitBtn.setAttribute('id', 'submit-project-btn');
       formSubmitBtn.setAttribute('class', 'btn btn-sm btn-primary');
       formSubmitBtn.textContent = 'Save Project';
       formSubmitBtnDiv.appendChild(formSubmitBtn);
