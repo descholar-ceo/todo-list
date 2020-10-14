@@ -21,8 +21,7 @@ module.exports = (env) => ({
 
   module: {
     rules: [{
-        test: /\.(css)$/,
-        exclude: /node_modules/,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -33,12 +32,8 @@ module.exports = (env) => ({
       {
         test: /\.(png|jpg|svg|gif|jpeg)?$/,
         use: 'file-loader',
-      },
-      {
-        test: /bootstrap\/dist\/js\/umd\//,
-        use: 'imports-loader?jQuery=jquery'
-      },
-    ],
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
