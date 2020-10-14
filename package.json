@@ -36,6 +36,7 @@
     "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.18.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
