@@ -1,7 +1,7 @@
 class ProjectUI {
   static displayCreateProjectForm = (element) => {
     const formDivWrapper = document.createElement('div');
-    formDivWrapper.setAttribute('class', 'width-40 centered-horizontal padding-y-5');
+    formDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const formH1 = document.createElement('h3');
     formH1.textContent = 'Create a new project';
     formDivWrapper.appendChild(formH1);

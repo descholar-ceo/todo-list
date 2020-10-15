@@ -2,6 +2,7 @@ import HomeUI from './home';
 import ProjectsList from '../components/projects_list';
 import ProjectUI from './project-ui';
 import ToDoUI from './todo-ui';
+import ToDo from '../components/todo';
 
 class NavBarUI {
   clear = () => {};
@@ -56,10 +57,22 @@ class NavBarUI {
     createToDoItem.textContent = 'Create todo';
     createToDoItem.addEventListener('click', (evt) => {
       evt.stopImmediatePropagation();
-
       rootElement.innerHTML = '';
       NavBarUI.displayNavbar(rootElement);
-      ToDoUI.displayCreateToDoForm(rootElement);
+      ToDoUI.displayCreateToDoForm(rootElement, projectsObj.listAll());
+
+      const toDoName = document.querySelector('#todo-name');
+      const toDoProject = document.querySelector('#todo-project');
+      const toDoDescription = document.querySelector('#todo-description');
+      const toDoPriority = document.querySelector('#todo-priority');
+      const toDoDate = document.querySelector('#todo-date');
+      const submitBtn = document.querySelector('#submit-todo-btn');
+
+      submitBtn.addEventListener('click', (evt) => {
+        evt.stopImmediatePropagation();
+        const toDoObj = new ToDo(toDoName.value, toDoPriority.value, toDoDescription.value, toDoDate.value);
+        projectsObj.addTodoToProject(toDoProject.value, toDoObj)
+      });
     });
     dropDownMenu.appendChild(createToDoItem);
     navLiMenu.appendChild(dropDownMenu);
