@@ -1,4 +1,11 @@
+import HomeUI from './home';
+import ProjectsList from '../components/projects_list';
+import ProjectUI from './project-ui';
+import ToDoUI from './todo-ui';
+
 class NavBarUI {
+  clear = () => {};
+
   static displayNavbar = (rootElement) => {
     const headerElt = document.createElement('header');
     headerElt.setAttribute('class', 'primary-bg centered-h-v width-100');
@@ -9,12 +16,54 @@ class NavBarUI {
     const navLiHome = document.createElement('li');
     navLiHome.setAttribute('class', 'padding-1 margin-x-1 active home');
     navLiHome.setAttribute('id', 'nav-item-home');
-    const navLiContact = document.createElement('li');
-    navLiContact.setAttribute('class', 'padding-1 margin-x-1 contact');
-    navLiContact.setAttribute('id', 'nav-item');
+
+    const projectsObj = new ProjectsList();
+    navLiHome.addEventListener('click', (evt) => {
+      evt.stopImmediatePropagation();
+
+      rootElement.innerHTML = '';
+      NavBarUI.displayNavbar(rootElement);
+      HomeUI.displayProjectsList(projectsObj.listAll(), rootElement);
+    });
+
+    const navLiNewProject = document.createElement('li');
+    navLiNewProject.setAttribute('class', 'padding-1 margin-x-1 contact');
+    navLiNewProject.setAttribute('id', 'nav-item-new-project');
+    navLiNewProject.addEventListener('click', (evt) => {
+      evt.stopImmediatePropagation();
+
+      rootElement.innerHTML = '';
+      NavBarUI.displayNavbar(rootElement);
+      ProjectUI.displayCreateProjectForm(rootElement);
+
+      const projectName = document.querySelector('#project-name');
+      const submitBtn = document.querySelector('#submit-project-btn');
+
+      submitBtn.addEventListener('click', (evt) => {
+        evt.stopImmediatePropagation();
+        projectsObj.addProject(projectName.value);
+      });
+    });
     const navLiMenu = document.createElement('li');
-    navLiMenu.setAttribute('class', 'padding-1 margin-x-1 menu');
+    navLiMenu.setAttribute('class', 'padding-1 margin-x-1 menu dropdown-toggle');
+    navLiMenu.setAttribute('data-toggle', 'dropdown');
     navLiMenu.setAttribute('id', 'nav-item');
+    const dropDownMenu = document.createElement('div');
+
+    dropDownMenu.setAttribute('class', 'dropdown-menu');
+    const createToDoItem = document.createElement('li');
+    createToDoItem.setAttribute('class', 'dropdown-item cursor-pointer');
+    createToDoItem.textContent = 'Create todo';
+    createToDoItem.addEventListener('click', (evt) => {
+      evt.stopImmediatePropagation();
+
+      rootElement.innerHTML = '';
+      NavBarUI.displayNavbar(rootElement);
+      ToDoUI.displayCreateToDoForm(rootElement);
+    });
+    dropDownMenu.appendChild(createToDoItem);
+    navLiMenu.appendChild(dropDownMenu);
+
     const homeIcon = document.createElement('i');
     homeIcon.setAttribute('class', 'fa fa-home hidden-sm');
     homeIcon.setAttribute('aria-hidden', 'true');
@@ -31,14 +80,14 @@ class NavBarUI {
     navLiHome.appendChild(homeIcon);
     navLiHome.appendChild(homeText);
 
-    navLiContact.appendChild(contactIcon);
-    navLiContact.appendChild(contactText);
+    navLiNewProject.appendChild(contactIcon);
+    navLiNewProject.appendChild(contactText);
 
     navLiMenu.appendChild(menuIcon);
     navLiMenu.appendChild(menuText);
 
     navUl.appendChild(navLiHome);
-    navUl.appendChild(navLiContact);
+    navUl.appendChild(navLiNewProject);
     navUl.appendChild(navLiMenu);
 
     navElt.appendChild(navUl);

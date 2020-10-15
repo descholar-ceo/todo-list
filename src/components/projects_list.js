@@ -1,4 +1,4 @@
-class Projects {
+class ProjectsList {
   constructor() {
     this.allProjects = localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : [];
   }
@@ -19,7 +19,7 @@ class Projects {
 
   getAllTodosOfProject = (projectId) => this.getIndivualProject(projectId).todos
 
-  allProjects = () => this.allProjects;
+  listAll = () => this.allProjects;
 }
 
-export default Projects;
+export default ProjectsList;

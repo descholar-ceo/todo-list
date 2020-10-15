@@ -1,5 +1,4 @@
 @import 'variables';
-
 html {
   box-sizing: border-box;
 }
@@ -50,7 +49,6 @@ nav {
   ul {
     height: 100%;
   }
-
   li,
   .fa {
     color: $white-color;
@@ -59,21 +57,21 @@ nav {
 }
 
 .project-container {
-  background-color: #6f2929;
+  background-color: $secondary-color;
   height: 80px;
   margin-top: 20px;
 }
 
 .project-container :nth-child(1) {
-  color: #fff;
+  color: $white-color;
 }
 
 .project-container :nth-child(2) {
-  color: #87ceeb;
+  color: $light-blue;
 }
 
 .create-project-btn {
-  color: #fff;
+  color: $white-color;
   border-radius: 60px;
 }
 

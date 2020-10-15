@@ -1,33 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/style.scss';
-
-import ProjectUI from './layouts/projects-ui';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import NavBarUI from './layouts/navbar';
 import HomeUI from './layouts/home';
-import Projects from './components/projects';
+import ProjectsList from './components/projects_list';
 
 const content = document.querySelector('#root');
-const projectsObj = new Projects();
+const projectsObj = new ProjectsList();
 
 NavBarUI.displayNavbar(content);
-const homeBtn = document.querySelector('#nav-item-home');
-
-ProjectUI.displayCreateProjectForm(content);
-
-const projectName = document.querySelector('#project-name');
-const submitBtn = document.querySelector('#submit-project-btn');
-
-submitBtn.addEventListener('click', () => {
-  projectsObj.addProject(projectName.value);
-});
-
-const clear = () => {
-  content.innerHTML = '';
-  NavBarUI.displayNavbar(content);
-};
-
-homeBtn.addEventListener('click', () => {
-  clear();
-  const projectsList = projectsObj.allProjects;
-  HomeUI.displayProjectsList(projectsList, content);
-});
+HomeUI.displayProjectsList(projectsObj.listAll(), content);
