@@ -15,7 +15,10 @@ class ProjectsList {
 
   getIndivualProject = (projectId) => this.allProjects[projectId - 1];
 
-  addTodoToProject = (projectId, todo) => this.getIndivualProject(projectId).todos.push(todo);
+  addTodoToProject = (projectId, todo) => {
+    this.getIndivualProject(projectId).todos.push(todo);
+    localStorage.setItem('projects', JSON.stringify(this.allProjects));
+  };
 
   getAllTodosOfProject = (projectId) => this.getIndivualProject(projectId).todos
 

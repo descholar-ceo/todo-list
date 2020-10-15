@@ -1,4 +1,5 @@
 @import 'variables';
+
 html {
   box-sizing: border-box;
 }
@@ -49,6 +50,7 @@ nav {
   ul {
     height: 100%;
   }
+
   li,
   .fa {
     color: $white-color;

@@ -21,10 +21,8 @@ class ToDoUI {
     todoNameDiv.appendChild(todoNameLabel);
     todoNameDiv.appendChild(todoNameInputField);
 
-
-
     const chooseProject = document.createElement('div');
-    chooseProject.setAttribute('class', 'input-group mb-3')
+    chooseProject.setAttribute('class', 'input-group mb-3');
     const inputLabelDiv = document.createElement('div');
     inputLabelDiv.setAttribute('class', 'input-group-prepend');
     chooseProject.appendChild(inputLabelDiv);
@@ -36,12 +34,11 @@ class ToDoUI {
     todoProjectLabel.textContent = 'ToDo Project: ';
     projects.forEach((project) => {
       const choice = document.createElement('option');
-      choice.setAttribute('id', 'todo-project')
+      choice.setAttribute('id', 'todo-project');
       choice.value = project.projectId;
       choice.textContent = project.title;
       inputSelect.appendChild(choice);
-
-    })
+    });
     todoNameDiv.appendChild(todoProjectLabel);
     todoNameDiv.appendChild(chooseProject);
 

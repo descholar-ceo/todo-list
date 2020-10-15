@@ -70,8 +70,10 @@ class NavBarUI {
 
       submitBtn.addEventListener('click', (evt) => {
         evt.stopImmediatePropagation();
-        const toDoObj = new ToDo(toDoName.value, toDoPriority.value, toDoDescription.value, toDoDate.value);
-        projectsObj.addTodoToProject(toDoProject.value, toDoObj)
+        const toDoObj = new ToDo(
+          toDoName.value, toDoPriority.value, toDoDescription.value, toDoDate.value,
+        );
+        projectsObj.addTodoToProject(toDoProject.value, toDoObj);
       });
     });
     dropDownMenu.appendChild(createToDoItem);

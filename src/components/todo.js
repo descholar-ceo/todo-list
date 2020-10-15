@@ -7,33 +7,35 @@ class ToDo {
   }
 
   get name() {
-    return this._title;
+    return this.title;
   }
+
   get urgency() {
-    return this._priority;
+    return this.priority;
   }
 
   get deadline() {
-    return this._dueDate;
+    return this.dueDate;
   }
 
   get explanation() {
-    return this._description;
+    return this.description;
   }
 
   set name(thisTitle) {
-    this._title = thisTitle;
+    this.title = thisTitle;
   }
+
   set urgency(priorityLevel) {
     this.priority = priorityLevel;
   }
 
   set deadline(date) {
-    this._dueDate = date;
+    this.dueDate = date;
   }
 
   set explanation(descriptStr) {
-    this._description = descriptStr;
+    this.description = descriptStr;
   }
 }
 
