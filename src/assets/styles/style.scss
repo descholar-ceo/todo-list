@@ -74,8 +74,9 @@ nav {
 }
 
 .create-project-btn {
-  color: $white-color;
   border-radius: 60px;
+  outline: none;
+  border: none;
 }
 
 @import 'media-queries';
