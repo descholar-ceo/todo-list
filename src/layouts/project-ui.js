@@ -1,3 +1,5 @@
+import { createSingleTodoView } from '../helpers/projects-helpers';
+
 class ProjectUI {
   static displayCreateProjectForm = (element) => {
     const formDivWrapper = document.createElement('div');
@@ -34,6 +36,34 @@ class ProjectUI {
 
     element.append(formDivWrapper);
   }
+
+  static displayIndividualProject = (rootElement, projectToDisplay) => {
+    rootElement.innerHTML = '';
+    const allTodosInAProject = [];
+    projectToDisplay.todos.forEach(curr => {
+      let bg = '';
+      switch (curr.priority) {
+        case '1':
+          bg = 'priority-1-bg';
+          break;
+        case '2':
+          bg = 'priority-2-bg';
+          break;
+        case '3':
+          bg = 'priority-3-bg';
+          break;
+        case '4':
+          bg = 'priority-4-bg';
+          break;
+        default:
+          bg = 'priority-1-bg';
+          break;
+      }
+      allTodosInAProject.push(createSingleTodoView(curr, bg));
+    });
+
+    allTodosInAProject.map(todo => rootElement.append(todo));
+  };
 }
 
 export default ProjectUI;

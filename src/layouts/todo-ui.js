@@ -30,11 +30,11 @@ class ToDoUI {
     const inputSelect = document.createElement('select');
     chooseProject.appendChild(inputSelect);
     inputSelect.setAttribute('class', 'custom-select mb-5 form-control form-control-sm');
+    inputSelect.setAttribute('id', 'todo-project');
     const todoProjectLabel = document.createElement('label');
     todoProjectLabel.textContent = 'ToDo Project: ';
     projects.forEach((project) => {
       const choice = document.createElement('option');
-      choice.setAttribute('id', 'todo-project');
       choice.value = project.projectId;
       choice.textContent = project.title;
       inputSelect.appendChild(choice);

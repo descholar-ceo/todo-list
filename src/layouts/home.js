@@ -1,3 +1,5 @@
+import ProjectUI from './project-ui';
+
 class home {
   static displayProjectsList = (projects, rootElement) => {
     const homeDivWrapper = document.createElement('div');
@@ -18,6 +20,9 @@ class home {
       projectDiv.appendChild(toDos);
 
       homeDivWrapper.appendChild(projectDiv);
+      projectDiv.addEventListener('click', () => {
+        ProjectUI.displayIndividualProject(rootElement, project);
+      });
     });
 
     const btnsDiv = document.createElement('div');
