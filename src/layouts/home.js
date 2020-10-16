@@ -1,4 +1,3 @@
-import createButton from '../helpers/global-helpers';
 import { createSingleProjectView } from '../helpers/projects-helpers';
 import ProjectUI from './project-ui';
 
@@ -22,13 +21,6 @@ class home {
     });
     allProjects.map(curr => homeDivWrapper.appendChild(curr));
 
-    const btnsDiv = document.createElement('div');
-    btnsDiv.setAttribute('class', 'd-flex justify-content-between align-items-center');
-    const btnClasses = 'mt-5 btn-primary btn-sm create-project-btn p-4';
-    btnsDiv.appendChild(createButton(btnClasses, 'Create a project', undefined));
-    btnsDiv.appendChild(createButton(btnClasses, 'Create a todo', undefined));
-
-    homeDivWrapper.appendChild(btnsDiv);
     rootElement.appendChild(homeDivWrapper);
   }
 }

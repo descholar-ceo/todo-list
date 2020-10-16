@@ -43,7 +43,6 @@ const addClassActive = (item) => {
   item.classList.add('active');
 };
 
-// eventListeners
 allNavItems.forEach(item => {
   item.addEventListener('click', event => {
     if (event.target.classList.contains('home')) {
