@@ -1,4 +1,4 @@
-import createButton from '../helpers/global-helpers';
+import { validateForm, createButton } from '../helpers/global-helpers';
 import { saveTodo } from '../helpers/todo-helpers';
 
 class ToDoUI {
@@ -61,7 +61,7 @@ class ToDoUI {
     const todoNumLabel = document.createElement('label');
     todoNumLabel.textContent = 'ToDo Priority: ';
     todoNumInputField.setAttribute('type', 'number');
-    todoNumInputField.setAttribute('placeholder', '1');
+    todoNumInputField.value = 1;
     todoNameDiv.appendChild(todoNumLabel);
     todoNameDiv.appendChild(todoNumInputField);
 
@@ -88,7 +88,13 @@ class ToDoUI {
       todoNumInputField,
       todoDateInputField,
     };
-    const formSubmitBtn = createButton('btn btn-sm btn-primary', 'Save todo', () => saveTodo(todoParams));
+    const saveTodoMethod = () => {
+      if (!validateForm(todoParams)) {
+        return saveTodo(todoParams);
+      }
+      return true;
+    };
+    const formSubmitBtn = createButton('btn btn-sm btn-primary', 'Save todo', saveTodoMethod);
     formSubmitBtnDiv.appendChild(formSubmitBtn);
 
     formDivWrapper.appendChild(formSubmitBtnDiv);
