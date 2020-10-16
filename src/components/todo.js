@@ -1,5 +1,5 @@
 class ToDo {
-  constructor(title = 'title', priority = 1, description = 'description', dueDate = new Date()) {
+  constructor(title = 'default title', priority = 1, description = 'default description', dueDate = new Date()) {
     this.priority = priority;
     this.description = description;
     this.dueDate = dueDate;
