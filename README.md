@@ -7,7 +7,7 @@ This project is an implementation of a todo-list web page.
 This project was done mainly for learning purposes, the aim was to practice using javascript factories/classes/constructors. The project's specifications are listed on [The odin project](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
 
 ## Screenshot
-![demo picture](./public/images/screenshot.png)
+![demo picture](./src/assets/img/todo-scrsht.png)
 
 ## Built with
 - HTML5
@@ -17,17 +17,18 @@ This project was done mainly for learning purposes, the aim was to practice usin
 - Javascript design patterns
 
 ## Features
-- Page contains a home page, where users can access the apps features
-- There's a responsive tabs menu for navigation 
+- This has a home page, where users can access the app's features
 - User can 
-    - create and modify a to-do list
-    - add items to a to-do list
-    - remove items from a to-do list
-    - tick off items on a to-do list as done
-    - can add notes to todo-list items
+    - create a todo
+    - edit a todo
+    - create new projects
+    - view all projects
+    - view all todos in each project
+    - remove a todo from a project
+    - delete a todo
 
 ## Deployment
-[ToDoList app on heroku]()
+[ToDo List app on netlify](https://gracious-edison-c209da.netlify.app)
 
 ## Running and testing it locally
 
@@ -36,14 +37,11 @@ No special pre-requisite required for this project
 
 ### Setup
 - Run `git clone https://github.com/descholar-ceo/todo-list && cd todo-list` to get a copy of source codes on your local computer and to navigate inside the project directory
+- Run `yarn install`
+- Run `yarn build`
 
 ### Usage
-- If you have a live-server installed on you computer, you can open `index.html` file with that server by running the following commands
-
-```
-npm install
-npm run build
-``` 
+- Run `yarn dev` to run this app in development environment or `yarn start` to run this project in production environment
 
 ### Tests
 - No test yet
