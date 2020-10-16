@@ -1,4 +1,5 @@
 import ProjectsList from '../components/projects-list';
+import { createTodoComponent } from './todo-helpers';
 
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
@@ -17,7 +18,7 @@ export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   return projectDiv;
 };
 
-export const createSingleTodoView = (todo, bg) => {
+export const createSingleTodoView = (todo, bg, mainElt) => {
   const singleTodoDiv = document.createElement('div');
   singleTodoDiv.setAttribute('class', `width-60 flex-space-between cursor-pointer padding-1 margin-y-1 centered-horizontal ${bg}`);
 
@@ -29,6 +30,11 @@ export const createSingleTodoView = (todo, bg) => {
 
   singleTodoDiv.appendChild(todoTitle);
   singleTodoDiv.appendChild(todoDueDate);
+
+  singleTodoDiv.addEventListener('click', () => {
+    mainElt.innerHTML = '';
+    mainElt.append(createTodoComponent(todo, bg));
+  });
 
   return singleTodoDiv;
 };

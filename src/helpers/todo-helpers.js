@@ -3,17 +3,17 @@ import ToDo from '../components/todo';
 
 export const createTodoComponent = (todo, bg) => {
   const todoDiv = document.createElement('div');
-  todoDiv.setAttribute('class', `width-60 ${bg} bordered-element padding-2`);
+  todoDiv.setAttribute('class', `width-60 ${bg} bordered-element padding-2 centered-horizontal`);
 
   const todoH1 = document.createElement('h1');
   todoH1.setAttribute('class', 'width-100 centered-text text-1-5');
   todoH1.textContent = todo.title;
   todoDiv.appendChild(todoH1);
 
-  const todoDescrition = document.createElement('p');
-  todoDescrition.setAttribute('class', 'text-1-2');
-  todoDescrition.textContent = todo.description;
-  todoDiv.appendChild(todoDescrition);
+  const todoDescription = document.createElement('p');
+  todoDescription.setAttribute('class', 'text-1-2');
+  todoDescription.textContent = todo.description;
+  todoDiv.appendChild(todoDescription);
 
   const todoDueDate = document.createElement('p');
   todoDueDate.setAttribute('class', 'text-1');
@@ -22,7 +22,7 @@ export const createTodoComponent = (todo, bg) => {
 
   const todoPriority = document.createElement('p');
   todoPriority.setAttribute('class', 'text-medium');
-  todoPriority.textContent = todo.priority;
+  todoPriority.textContent = `This is the ${todo.priority}th priority`;
   todoDiv.appendChild(todoPriority);
 
   todoDiv.addEventListener('click', () => {});

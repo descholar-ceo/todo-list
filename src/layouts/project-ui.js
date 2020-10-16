@@ -39,7 +39,7 @@ class ProjectUI {
     rootElement.innerHTML = '';
     const allTodosInAProject = [];
     projectToDisplay.todos.forEach(curr => {
-      allTodosInAProject.push(createSingleTodoView(curr, getTodoBackground(curr)));
+      allTodosInAProject.push(createSingleTodoView(curr, getTodoBackground(curr), rootElement));
     });
 
     allTodosInAProject.map(todo => rootElement.append(todo));
