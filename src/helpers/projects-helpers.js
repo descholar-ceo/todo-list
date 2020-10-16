@@ -1,5 +1,7 @@
 import ProjectsList from '../components/projects-list';
 import { createTodoComponent } from './todo-helpers';
+import EditToDoUI from '../layouts/todo-ui-edit';
+
 
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
@@ -29,6 +31,14 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   const editBtn = document.createElement('i');
 
   editBtn.setAttribute('class', 'fa fa-pencil-square-o')
+  editBtn.addEventListener('click', (evt) => {
+    const toDoDivEl = (evt.target.parentNode).parentNode
+    const toDoDivElId = toDoDivEl.id.split('-');
+    const project = new ProjectsList().getIndivualProject(parseInt(toDoDivElId[1]));
+    const toDoIndex = parseInt(toDoDivElId[2]);
+    mainElt.innerHTML = '';
+    EditToDoUI.displayEditToDoForm(mainElt, project, toDoIndex);
+  });
   singleTodoBtns.append(editBtn);
 
   const deleteBtn = document.createElement('i');

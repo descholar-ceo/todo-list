@@ -61,3 +61,13 @@ export const saveTodo = todo => {
   const newTodo = new ToDo(todoTitle, todoPriority, description, dueDate);
   new ProjectsList().addTodoToProject(projectId, newTodo);
 };
+
+export const editTodo = (todo, index) => {
+  const { value: projectId } = todo.projectSelect;
+  const { value: todoTitle } = todo.todoNameInputField;
+  const { value: todoPriority } = todo.todoNumInputField;
+  const { value: dueDate } = todo.todoDateInputField;
+  const { value: description } = todo.todoDescriptInputField;
+  const editedTodo = new ToDo(todoTitle, todoPriority, description, dueDate);
+  new ProjectsList().editTodoToProject(projectId, editedTodo, index);
+};

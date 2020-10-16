@@ -20,6 +20,12 @@ class ProjectsList {
     localStorage.setItem('projects', JSON.stringify(this.allProjects));
   };
 
+  editTodoToProject = (projectId, editedTodo, index) => {
+    this.getIndivualProject(projectId).todos[index] = editedTodo;
+
+    localStorage.setItem('projects', JSON.stringify(this.allProjects));
+  };
+
   deleteTodoFromProject = (projectId, index) => {
     this.getIndivualProject(projectId).todos.splice(index, 1);;
     localStorage.setItem('projects', JSON.stringify(this.allProjects));
