@@ -33,7 +33,8 @@ This project was done mainly for learning purposes, the aim was to practice usin
 ## Running and testing it locally
 
 ### Prerequisites
-No special pre-requisite required for this project
+- [NodeJS](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/) or just the default npm which comes with NodeJS
 
 ### Setup
 - Run `git clone https://github.com/descholar-ceo/todo-list && cd todo-list` to get a copy of source codes on your local computer and to navigate inside the project directory
