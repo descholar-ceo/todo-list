@@ -1,3 +1,6 @@
+import ProjectsList from '../components/projects-list';
+import ToDo from '../components/todo';
+
 export const createTodoComponent = (todo, bg) => {
   const todoDiv = document.createElement('div');
   todoDiv.setAttribute('class', `width-60 ${bg} bordered-element padding-2`);
@@ -47,4 +50,14 @@ export const getTodoBackground = todo => {
       break;
   }
   return bg;
+};
+
+export const saveTodo = todo => {
+  const { value: projectId } = todo.projectSelect;
+  const { value: todoTitle } = todo.todoNameInputField;
+  const { value: todoPriority } = todo.todoNumInputField;
+  const { value: dueDate } = todo.todoDateInputField;
+  const { value: description } = todo.todoDescriptInputField;
+  const newTodo = new ToDo(todoTitle, todoPriority, description, dueDate);
+  new ProjectsList().addTodoToProject(projectId, newTodo);
 };

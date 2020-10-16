@@ -1,3 +1,6 @@
+import createButton from '../helpers/global-helpers';
+import { saveTodo } from '../helpers/todo-helpers';
+
 class ToDoUI {
   static displayCreateToDoForm = (element, projects) => {
     const formDivWrapper = document.createElement('div');
@@ -27,17 +30,17 @@ class ToDoUI {
     inputLabelDiv.setAttribute('class', 'input-group-prepend');
     chooseProject.appendChild(inputLabelDiv);
 
-    const inputSelect = document.createElement('select');
-    chooseProject.appendChild(inputSelect);
-    inputSelect.setAttribute('class', 'custom-select mb-5 form-control form-control-sm');
-    inputSelect.setAttribute('id', 'todo-project');
+    const projectSelect = document.createElement('select');
+    chooseProject.appendChild(projectSelect);
+    projectSelect.setAttribute('class', 'custom-select mb-5 form-control form-control-sm');
+    projectSelect.setAttribute('id', 'todo-project');
     const todoProjectLabel = document.createElement('label');
     todoProjectLabel.textContent = 'ToDo Project: ';
     projects.forEach((project) => {
       const choice = document.createElement('option');
       choice.value = project.projectId;
       choice.textContent = project.title;
-      inputSelect.appendChild(choice);
+      projectSelect.appendChild(choice);
     });
     todoNameDiv.appendChild(todoProjectLabel);
     todoNameDiv.appendChild(chooseProject);
@@ -78,11 +81,14 @@ class ToDoUI {
 
     const formSubmitBtnDiv = document.createElement('div');
 
-    const formSubmitBtn = document.createElement('button');
-    formSubmitBtn.setAttribute('type', 'button');
-    formSubmitBtn.setAttribute('id', 'submit-todo-btn');
-    formSubmitBtn.setAttribute('class', 'btn btn-sm btn-primary');
-    formSubmitBtn.textContent = 'Save todo';
+    const todoParams = {
+      todoNameInputField,
+      projectSelect,
+      todoDescriptInputField,
+      todoNumInputField,
+      todoDateInputField,
+    };
+    const formSubmitBtn = createButton('btn btn-sm btn-primary', 'Save todo', () => saveTodo(todoParams));
     formSubmitBtnDiv.appendChild(formSubmitBtn);
 
     formDivWrapper.appendChild(formSubmitBtnDiv);

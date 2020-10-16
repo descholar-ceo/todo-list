@@ -3,7 +3,7 @@ import './assets/styles/style.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import NavBarUI from './layouts/navbar';
 import HomeUI from './layouts/home';
-import ProjectsList from './components/projects_list';
+import ProjectsList from './components/projects-list';
 import ProjectUI from './layouts/project-ui';
 import ToDoUI from './layouts/todo-ui';
 
@@ -21,6 +21,7 @@ const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); }
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
 
 mainHome();
+
 const tabSwitcher = (moduleToDisplay) => {
   mainElt.innerHTML = '';
   moduleToDisplay();
@@ -59,3 +60,5 @@ allNavItems.forEach(item => {
     }
   });
 });
+
+// const saveProjectBtn = document.querySelector('#submit-project-btn');

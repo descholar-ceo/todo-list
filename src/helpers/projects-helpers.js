@@ -1,3 +1,5 @@
+import ProjectsList from '../components/projects-list';
+
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
   projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center');
@@ -29,4 +31,8 @@ export const createSingleTodoView = (todo, bg) => {
   singleTodoDiv.appendChild(todoDueDate);
 
   return singleTodoDiv;
+};
+
+export const saveProject = projectTitleInputField => {
+  new ProjectsList().addProject(projectTitleInputField.value);
 };
