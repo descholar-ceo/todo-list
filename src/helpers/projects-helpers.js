@@ -43,14 +43,12 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   singleTodoBtns.append(deleteBtn);
 
   const infoBtn = document.createElement('i');
-  infoBtn.setAttribute('class', 'fa fa-trash')
+  infoBtn.setAttribute('class', 'fa fa-info-circle')
   infoBtn.addEventListener('click', (evt) => {
-    const toDoDivEl = (evt.target.parentNode).parentNode
-    const toDoDivElId = toDoDivEl.id.split('-');
-    new ProjectsList().deleteTodoFromProject(parseInt(toDoDivElId[1]), parseInt(toDoDivElId[2]));
-    toDoDivEl.remove();
+    mainElt.innerHTML = '';
+    mainElt.append(createTodoComponent(todo, bg));
   });
-  singleTodoBtns.append(deleteBtn);
+  singleTodoBtns.append(infoBtn);
 
   const singleTodoContent = document.createElement('div');
   singleTodoContent.setAttribute('class', 'col-12 d-flex flex-space-between');
@@ -64,11 +62,6 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
 
   singleTodoDiv.appendChild(singleTodoBtns);
   singleTodoDiv.appendChild(singleTodoContent);
-
-  singleTodoDiv.addEventListener('click', () => {
-    mainElt.innerHTML = '';
-    mainElt.append(createTodoComponent(todo, bg));
-  });
 
   return singleTodoDiv;
 };
