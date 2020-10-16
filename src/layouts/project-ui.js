@@ -37,9 +37,15 @@ class ProjectUI {
 
   static displayIndividualProject = (rootElement, projectToDisplay) => {
     rootElement.innerHTML = '';
+    const title = document.createElement('h4');
+    title.setAttribute('class', 'text-center m-5')
+    title.textContent = projectToDisplay.title;
+    rootElement.appendChild(title);
     const allTodosInAProject = [];
+    let posn = 0;
     projectToDisplay.todos.forEach(curr => {
-      allTodosInAProject.push(createSingleTodoView(curr, getTodoBackground(curr), rootElement));
+      allTodosInAProject.push(createSingleTodoView(curr, [projectToDisplay.projectId, posn], getTodoBackground(curr), rootElement));
+      posn += 1;
     });
 
     allTodosInAProject.map(todo => rootElement.append(todo));
