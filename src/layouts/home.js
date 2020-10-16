@@ -1,36 +1,33 @@
+import createButton from '../helpers/global-helpers';
+import { createSingleProjectView } from '../helpers/projects-helpers';
+import ProjectUI from './project-ui';
+
 class home {
+  static generateMainWrapper = (rootElement) => {
+    const mainElt = document.createElement('main');
+    mainElt.setAttribute('class', 'main-page width-100 height-100');
+    mainElt.setAttribute('id', 'main-container');
+    rootElement.append(mainElt);
+  }
+
   static displayProjectsList = (projects, rootElement) => {
     const homeDivWrapper = document.createElement('div');
     homeDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const listH1 = document.createElement('h2');
     listH1.textContent = 'List of Projects';
     homeDivWrapper.appendChild(listH1);
+    const allProjects = [];
     projects.forEach((project) => {
-      const projectDiv = document.createElement('div');
-      projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center');
-
-      const title = document.createElement('h4');
-      title.textContent = project.title;
-
-      projectDiv.appendChild(title);
-      const toDos = document.createElement('h4');
-      toDos.textContent = `${project.todos.length} todos`;
-      projectDiv.appendChild(toDos);
-
-      homeDivWrapper.appendChild(projectDiv);
+      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement));
     });
+    allProjects.map(curr => homeDivWrapper.appendChild(curr));
 
     const btnsDiv = document.createElement('div');
     btnsDiv.setAttribute('class', 'd-flex justify-content-between align-items-center');
-    const createProjectBtn = document.createElement('button');
-    createProjectBtn.setAttribute('class', 'mt-5 btn-primary create-project-btn p-4');
-    createProjectBtn.textContent = 'Create a project';
-    btnsDiv.appendChild(createProjectBtn);
+    const btnClasses = 'mt-5 btn-primary btn-sm create-project-btn p-4';
+    btnsDiv.appendChild(createButton(btnClasses, 'Create a project', undefined));
+    btnsDiv.appendChild(createButton(btnClasses, 'Create a todo', undefined));
 
-    const createToDoBtn = document.createElement('button');
-    createToDoBtn.setAttribute('class', 'ml-5 mt-5 btn-primary create-project-btn p-4');
-    createToDoBtn.textContent = 'Create a todo';
-    btnsDiv.appendChild(createToDoBtn);
     homeDivWrapper.appendChild(btnsDiv);
     rootElement.appendChild(homeDivWrapper);
   }

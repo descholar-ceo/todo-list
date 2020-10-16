@@ -65,6 +65,10 @@ $spaceAmount: (0, 1, 2, 3, 4, 5);
   border-radius: 1rem;
 }
 
+.bordered-element {
+  border: 1px solid $primary-color;
+}
+
 .border-radius-3,
 button,
 input,
@@ -84,5 +88,25 @@ select {
 // backgrounds
 .primary-bg {
   background-color: $primary-color;
+  color: $white-color;
+}
+
+.priority-4-bg {
+  background-color: $priority-4;
+  color: $black-color;
+}
+
+.priority-3-bg {
+  background-color: $priority-3;
+  color: $black-color;
+}
+
+.priority-2-bg {
+  background-color: $priority-2;
+  color: $black-color;
+}
+
+.priority-1-bg {
+  background-color: $priority-1;
   color: $white-color;
 }
