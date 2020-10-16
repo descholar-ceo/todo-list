@@ -27,7 +27,7 @@ class ProjectsList {
   };
 
   deleteTodoFromProject = (projectId, index) => {
-    this.getIndivualProject(projectId).todos.splice(index, 1);;
+    this.getIndivualProject(projectId).todos.splice(index, 1);
     localStorage.setItem('projects', JSON.stringify(this.allProjects));
   };
 

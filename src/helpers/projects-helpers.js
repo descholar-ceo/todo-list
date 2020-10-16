@@ -2,7 +2,6 @@ import ProjectsList from '../components/projects-list';
 import { createTodoComponent } from './todo-helpers';
 import EditToDoUI from '../layouts/todo-ui-edit';
 
-
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
   projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center');
@@ -30,12 +29,14 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   singleTodoBtns.setAttribute('class', 'pb-2 col-12 d-flex flex-space-between');
   const editBtn = document.createElement('i');
 
-  editBtn.setAttribute('class', 'fa fa-pencil-square-o')
+  editBtn.setAttribute('class', 'fa fa-pencil-square-o');
   editBtn.addEventListener('click', (evt) => {
-    const toDoDivEl = (evt.target.parentNode).parentNode
+    const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
-    const project = new ProjectsList().getIndivualProject(parseInt(toDoDivElId[1]));
-    const toDoIndex = parseInt(toDoDivElId[2]);
+    const project = new ProjectsList().getIndivualProject(
+      parseInt(toDoDivElId[1], 10),
+    );
+    const toDoIndex = parseInt(toDoDivElId[2], 10);
     mainElt.innerHTML = '';
     EditToDoUI.displayEditToDoForm(mainElt, project, toDoIndex);
   });
@@ -43,18 +44,20 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
 
   const deleteBtn = document.createElement('i');
 
-  deleteBtn.setAttribute('class', 'fa fa-trash')
+  deleteBtn.setAttribute('class', 'fa fa-trash');
   deleteBtn.addEventListener('click', (evt) => {
-    const toDoDivEl = (evt.target.parentNode).parentNode
+    const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
-    new ProjectsList().deleteTodoFromProject(parseInt(toDoDivElId[1]), parseInt(toDoDivElId[2]));
+    new ProjectsList().deleteTodoFromProject(
+      parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10),
+    );
     toDoDivEl.remove();
   });
   singleTodoBtns.append(deleteBtn);
 
   const infoBtn = document.createElement('i');
-  infoBtn.setAttribute('class', 'fa fa-info-circle')
-  infoBtn.addEventListener('click', (evt) => {
+  infoBtn.setAttribute('class', 'fa fa-info-circle');
+  infoBtn.addEventListener('click', () => {
     mainElt.innerHTML = '';
     mainElt.append(createTodoComponent(todo, bg));
   });
