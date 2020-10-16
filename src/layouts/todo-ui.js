@@ -71,7 +71,7 @@ class ToDoUI {
     const todoDateLabel = document.createElement('label');
     todoDateLabel.textContent = 'ToDo Date: ';
     todoDateInputField.setAttribute('type', 'date');
-    todoDateInputField.setAttribute('placeholder', new Date());
+    todoDateInputField.value = new Date();
     todoNameDiv.appendChild(todoDateLabel);
     todoNameDiv.appendChild(todoDateInputField);
 
