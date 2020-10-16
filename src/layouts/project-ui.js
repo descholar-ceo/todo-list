@@ -45,7 +45,10 @@ class ProjectUI {
     let posn = 0;
     projectToDisplay.todos.forEach(curr => {
       allTodosInAProject.push(createSingleTodoView(
-        curr, [projectToDisplay.projectId, posn], getTodoBackground(curr), rootElement,
+        curr,
+        [projectToDisplay.projectId, posn],
+        getTodoBackground(curr),
+        rootElement,
       ));
       posn += 1;
     });

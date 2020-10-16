@@ -21,6 +21,9 @@ const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); }
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
 
 mainHome();
+if (!localStorage.getItem('projects')) {
+  new ProjectsList().addProject('Default project');
+}
 
 const tabSwitcher = (moduleToDisplay) => {
   mainElt.innerHTML = '';
@@ -60,5 +63,3 @@ allNavItems.forEach(item => {
     }
   });
 });
-
-// const saveProjectBtn = document.querySelector('#submit-project-btn');
