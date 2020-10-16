@@ -1,4 +1,4 @@
-import createButton from '../helpers/global-helpers';
+import { createButton } from '../helpers/global-helpers';
 import { editTodo } from '../helpers/todo-helpers';
 
 class ToDoUI {
