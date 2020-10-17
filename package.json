@@ -4,22 +4,50 @@
   "description": "This project is gotten from https://www.theodinproject.com/courses/javascript/lessons/todo-list",
   "main": "./src/index.js",
   "scripts": {
-    "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
-    "eslint-f": "npx eslint . --fix"
+    "watch": "webpack --mode=development --watch",
+    "build": "webpack -p --env production",
+    "dev": "webpack-dev-server --mode=development --env development --watch --open",
+    "debug": "webpack-dev-server  --open",
+    "start": "webpack-dev-server --env production --open",
+    "eslint-f": "npx eslint . --fix",
+    "stylelint-f": "npx stylelint **/*.{css,scss} --fix"
   },
   "keywords": [
     "ES6",
     "Javascript-modules",
     "OOP"
   ],
-  "author": "descholar-ceo <emmanuellamugi@gmail.com>",
+  "author": "descholar-ceo <emmanuellamugi@gmail.com> and marylene <marylene.sawyer@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.3.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.1.1",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.3",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.18.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
