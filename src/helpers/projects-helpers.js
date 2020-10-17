@@ -4,7 +4,7 @@ import EditToDoUI from '../layouts/todo-ui-edit';
 
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
-  projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center');
+  projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center box-with-shadows');
 
   const title = document.createElement('h4');
   title.textContent = project.title;
