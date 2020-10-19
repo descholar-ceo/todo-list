@@ -2,9 +2,7 @@ import { createSingleProjectView } from '../helpers/projects-helpers';
 import ProjectUI from './project-ui';
 
 class home {
-
   static collapseBtn = (createProjectFunc, createTodoFunc, rootElement, projects) => {
-
     const btnsDiv = document.createElement('ul');
     const collapseContent = document.createElement('button');
     collapseContent.setAttribute('class', 'mb-2 btn-plus centered-horizontal mt-5 d-flex flex-column align-items-center');
@@ -39,9 +37,9 @@ class home {
     btnsDiv.appendChild(buttonNewProject);
     btnsDiv.appendChild(buttonCreateToDo);
     btnsDiv.setAttribute('id', 'collapse-items');
-    return [collapseContent, btnsDiv]
-
+    return [collapseContent, btnsDiv];
   }
+
   static generateMainWrapper = (rootElement) => {
     const mainElt = document.createElement('main');
     mainElt.setAttribute('class', 'main-page width-100 height-100');
@@ -56,19 +54,26 @@ class home {
     listH1.textContent = 'List of Projects';
     homeDivWrapper.appendChild(listH1);
     const allProjects = [];
-    let collapseContent, btnsDiv;
+    let collapseContent;
+    let
+      btnsDiv;
     projects.forEach((project) => {
-      [collapseContent, btnsDiv] = this.collapseBtn(createProjectFunc, createTodoFunc, rootElement, [project]);
+      [collapseContent, btnsDiv] = this.collapseBtn(
+        createProjectFunc, createTodoFunc, rootElement, [project],
+      );
 
-      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement, collapseContent, btnsDiv));
+      allProjects.push(createSingleProjectView(
+        project, ProjectUI, rootElement, collapseContent, btnsDiv,
+      ));
     });
     allProjects.map(curr => homeDivWrapper.appendChild(curr));
     rootElement.appendChild(homeDivWrapper);
-    let collapseContentProjects, btnsDivProjects;
 
-    [collapseContentProjects, btnsDivProjects] = this.collapseBtn(createProjectFunc, createTodoFunc, rootElement, projects);
-    rootElement.appendChild(collapseContentProjects);
-    rootElement.appendChild(btnsDivProjects);
+    [collapseContent, btnsDiv] = this.collapseBtn(
+      createProjectFunc, createTodoFunc, rootElement, projects,
+    );
+    rootElement.appendChild(collapseContent);
+    rootElement.appendChild(btnsDiv);
   }
 }
 

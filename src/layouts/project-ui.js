@@ -63,7 +63,6 @@ class ProjectUI {
     allTodosInAProject.map(todo => rootElement.append(todo));
     rootElement.appendChild(collapseContent);
     rootElement.appendChild(btnsDiv);
-
   };
 }
 

@@ -2,7 +2,9 @@ import ProjectsList from '../components/projects-list';
 import { createTodoComponent } from './todo-helpers';
 import EditToDoUI from '../layouts/todo-ui-edit';
 
-export const createSingleProjectView = (project, ProjectUI, rootElement, collapseContent, btnsDiv) => {
+export const createSingleProjectView = (
+  project, ProjectUI, rootElement, collapseContent, btnsDiv,
+) => {
   const projectDiv = document.createElement('div');
   projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center box-with-shadows');
 
