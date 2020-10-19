@@ -3,6 +3,7 @@ import { saveTodo } from '../helpers/todo-helpers';
 
 class ToDoUI {
   static displayCreateToDoForm = (element, projects) => {
+    element.innerHTML = '';
     const formDivWrapper = document.createElement('div');
     formDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const formH1 = document.createElement('h3');

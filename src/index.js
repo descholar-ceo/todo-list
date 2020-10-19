@@ -12,24 +12,35 @@ const allProjects = new ProjectsList().listAll();
 const mainWrapper = () => HomeUI.generateMainWrapper(content);
 
 NavBarUI.displayNavbar(content);
+
 mainWrapper();
 
 const mainElt = document.querySelector('#main-container');
 
-const mainHome = () => HomeUI.displayProjectsList(allProjects, mainElt);
+
 const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); };
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
+const mainHome = () => HomeUI.displayProjectsList(allProjects, mainElt, createProjectForm, createTodo);
 
 mainHome();
 
 const tabSwitcher = (moduleToDisplay) => {
+
   mainElt.innerHTML = '';
+
   moduleToDisplay();
-};
+
+}
 const allNavItems = document.querySelectorAll('#nav-item');
+const allFooterItems = document.querySelectorAll('#footer-item');
 
 const deleteClassActive = () => {
   allNavItems.forEach(item => {
+    if (item.classList.contains('active')) {
+      item.classList.remove('active');
+    }
+  });
+  allFooterItems.forEach(item => {
     if (item.classList.contains('active')) {
       item.classList.remove('active');
     }
@@ -60,5 +71,3 @@ allNavItems.forEach(item => {
     }
   });
 });
-
-// const saveProjectBtn = document.querySelector('#submit-project-btn');

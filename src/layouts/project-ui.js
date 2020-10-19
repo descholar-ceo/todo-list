@@ -4,6 +4,7 @@ import { getTodoBackground } from '../helpers/todo-helpers';
 
 class ProjectUI {
   static displayCreateProjectForm = (element) => {
+    element.innerHTML = '';
     const formDivWrapper = document.createElement('div');
     formDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const formH1 = document.createElement('h3');

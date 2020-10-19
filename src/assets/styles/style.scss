@@ -1,5 +1,4 @@
 @import 'variables';
-
 html {
   box-sizing: border-box;
 }
@@ -51,7 +50,6 @@ nav {
   ul {
     height: 100%;
   }
-
   li,
   .fa {
     color: $white-color;
@@ -77,6 +75,10 @@ nav {
   border-radius: 60px;
   outline: none;
   border: none;
+}
+
+button:focus {
+  outline: none;
 }
 
 @import 'media-queries';
