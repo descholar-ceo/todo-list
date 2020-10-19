@@ -37,12 +37,15 @@ class ToDoUI {
     projectSelect.setAttribute('id', 'todo-project');
     const todoProjectLabel = document.createElement('label');
     todoProjectLabel.textContent = 'ToDo Project: ';
+    const choice = document.createElement('option');
+
     projects.forEach((project) => {
       const choice = document.createElement('option');
       choice.value = project.projectId;
       choice.textContent = project.title;
       projectSelect.appendChild(choice);
     });
+
     todoNameDiv.appendChild(todoProjectLabel);
     todoNameDiv.appendChild(chooseProject);
 
