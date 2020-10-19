@@ -22,7 +22,7 @@ const mainElt = document.querySelector('#main-container');
 const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); };
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
 const mainHome = () => HomeUI.displayProjectsList(
-  allProjects, mainElt, createProjectForm, createTodo,
+  allProjects, mainElt, createProjectForm, ToDoUI.displayCreateToDoForm,
 );
 
 mainHome();

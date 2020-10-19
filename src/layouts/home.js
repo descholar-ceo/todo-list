@@ -2,25 +2,9 @@ import { createSingleProjectView } from '../helpers/projects-helpers';
 import ProjectUI from './project-ui';
 
 class home {
-  static generateMainWrapper = (rootElement) => {
-    const mainElt = document.createElement('main');
-    mainElt.setAttribute('class', 'main-page width-100 height-100');
-    mainElt.setAttribute('id', 'main-container');
-    rootElement.append(mainElt);
-  }
 
-  static displayProjectsList = (projects, rootElement, createProjectFunc, createTodoFunc) => {
-    const homeDivWrapper = document.createElement('div');
-    homeDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
-    const listH1 = document.createElement('h2');
-    listH1.textContent = 'List of Projects';
-    homeDivWrapper.appendChild(listH1);
-    const allProjects = [];
-    projects.forEach((project) => {
-      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement));
-    });
-    allProjects.map(curr => homeDivWrapper.appendChild(curr));
-    rootElement.appendChild(homeDivWrapper);
+  static collapseBtn = (createProjectFunc, createTodoFunc, rootElement, projects, project) => {
+
     const btnsDiv = document.createElement('ul');
     const collapseContent = document.createElement('button');
     collapseContent.setAttribute('class', 'mb-2 btn-plus centered-horizontal mt-5 d-flex flex-column align-items-center');
@@ -46,14 +30,37 @@ class home {
     buttonCreateToDo.setAttribute('class', 'border p-3');
     buttonCreateToDo.textContent = 'Add a todo';
     buttonCreateToDo.addEventListener('click', () => {
-      createTodoFunc();
+      createTodoFunc(rootElement, projects, project);
     });
 
     btnsDiv.appendChild(buttonNewProject);
     btnsDiv.appendChild(buttonCreateToDo);
     btnsDiv.setAttribute('id', 'collapse-items');
+    return [collapseContent, btnsDiv]
 
+  }
+  static generateMainWrapper = (rootElement) => {
+    const mainElt = document.createElement('main');
+    mainElt.setAttribute('class', 'main-page width-100 height-100');
+    mainElt.setAttribute('id', 'main-container');
+    rootElement.append(mainElt);
+  }
+
+  static displayProjectsList = (projects, rootElement, createProjectFunc, createTodoFunc) => {
+    const homeDivWrapper = document.createElement('div');
+    homeDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
+    const listH1 = document.createElement('h2');
+    listH1.textContent = 'List of Projects';
+    homeDivWrapper.appendChild(listH1);
+    const allProjects = [];
+    projects.forEach((project) => {
+      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement));
+    });
+    allProjects.map(curr => homeDivWrapper.appendChild(curr));
     rootElement.appendChild(homeDivWrapper);
+
+    let collapseContent, btnsDiv;
+    [collapseContent, btnsDiv] = this.collapseBtn(createProjectFunc, createTodoFunc, rootElement, projects);
     rootElement.appendChild(collapseContent);
     rootElement.appendChild(btnsDiv);
   }
