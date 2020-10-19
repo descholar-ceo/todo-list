@@ -1,86 +1,101 @@
-@import 'variables';
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-* {
-  border: 0 none;
-  list-style: none outside none;
-  margin: 0;
-  outline: 0 none;
-  padding: 0;
-}
-
-body {
-  padding: 0;
-  margin: 0 auto;
-  height: 100%;
-  font-size: 16px;
-  line-height: 20px;
-  color: #333;
-  overflow-x: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  position: relative;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-nav {
-  ul {
+  @import 'variables';
+  html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  * {
+    border: 0 none;
+    list-style: none outside none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0 auto;
     height: 100%;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
   }
-  li,
-  .fa {
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  nav {
+    ul {
+      height: 100%;
+    }
+    li,
+    .fa {
+      color: $white-color;
+      cursor: pointer;
+    }
+  }
+  
+  .project-container {
+    background-color: $secondary-color;
+    height: 80px;
+    margin-top: 20px;
+  }
+  
+  .project-container :nth-child(1) {
     color: $white-color;
-    cursor: pointer;
   }
-}
-
-.project-container {
-  background-color: $secondary-color;
-  height: 80px;
-  margin-top: 20px;
-}
-
-.project-container :nth-child(1) {
-  color: $white-color;
-}
-
-.project-container :nth-child(2) {
-  color: $light-blue;
-}
-
-.create-project-btn {
-  border-radius: 60px;
-  outline: none;
-  border: none;
-}
-
-button:focus {
-  outline: none;
-}
-
-@import 'media-queries';
-@import 'utilities';
-@import 'widths-heights'
+  
+  .project-container :nth-child(2) {
+    color: $light-blue;
+  }
+  
+  button {
+    border-radius: 60px;
+    outline: none;
+    border: none;
+  }
+  
+  .icon-plus {
+    color: #ffffff
+  }
+  
+  .btn-plus {
+    background-color: rgb(112, 124, 128);
+    border-radius: 50px;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .collapse li:hover {
+    cursor: pointer;
+    background-color: $light-blue;
+    color: $white-color;
+  }
+  
+  @import 'media-queries';
+  @import 'utilities';
+  @import 'widths-heights'

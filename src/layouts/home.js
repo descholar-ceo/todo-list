@@ -21,31 +21,41 @@ class home {
     });
     allProjects.map(curr => homeDivWrapper.appendChild(curr));
     rootElement.appendChild(homeDivWrapper);
-    const btnsDiv = document.createElement('div');
-    // btnsDiv.setAttribute('id', 'parent-item');
+    const btnsDiv = document.createElement('ul');
+    const collapseContent = document.createElement('button');
+    collapseContent.setAttribute('class', 'mb-2 btn-plus centered-horizontal mt-5 d-flex flex-column align-items-center')
     const collapseLink = document.createElement('a');
-
-    btnsDiv.setAttribute('class', 'col-10 col-md-6 d-flex flex-column align-items-center flex-sm-row centered-horizontal padding-y-5 d-flex justify-content-between align-items-center');
-    const btnClasses = 'new-project mt-5 btn-primary btn-sm create-project-btn p-4';
-    const buttonNewProject = document.createElement('button');
-    const buttonCreateToDo = document.createElement('button');
-    buttonNewProject.setAttribute('class', `${btnClasses} new-project-btn`);
-    // buttonNewProject.innerHTML = < i class = `fa fa-plus-circle` > < /i>;
+    collapseLink.setAttribute('role', 'button');
+    collapseLink.setAttribute('data-toggle', 'collapse');
+    collapseLink.setAttribute('aria-expanded', 'false');
+    collapseLink.setAttribute('aria-controls', 'collapse-items');
+    const plusIcon = document.createElement('i');
+    plusIcon.className = 'fa fa-plus-circle fa-2x icon-plus';
+    plusIcon.setAttribute('aria-hidden', 'true');
+    collapseLink.appendChild(plusIcon);
+    collapseLink.href = '#collapse-items';
+    collapseContent.appendChild(collapseLink);
+    btnsDiv.setAttribute('class', 'collapse card-body centered-horizontal border col-10 col-md-3');
+    const buttonNewProject = document.createElement('li');
+    const buttonCreateToDo = document.createElement('li');
+    buttonNewProject.setAttribute('class', 'border p-3');
+    buttonNewProject.textContent = 'Add a new project'
     buttonNewProject.addEventListener('click', () => {
       createProjectFunc();
     });
-    buttonCreateToDo.setAttribute('class', `${btnClasses} to-do-form-btn`);
-    buttonCreateToDo.innerHTML = '&plus; todo';
+    buttonCreateToDo.setAttribute('class', 'border p-3');
+    buttonCreateToDo.textContent = 'Add a todo';
     buttonCreateToDo.addEventListener('click', () => {
       createTodoFunc();
     });
 
     btnsDiv.appendChild(buttonNewProject);
-    btnsDiv.appendChild(buttonCreateToDo)
-
-    rootElement.appendChild(btnsDiv);
+    btnsDiv.appendChild(buttonCreateToDo);
+    btnsDiv.setAttribute('id', 'collapse-items');
 
     rootElement.appendChild(homeDivWrapper);
+    rootElement.appendChild(collapseContent);
+    rootElement.appendChild(btnsDiv);
   }
 }
 
