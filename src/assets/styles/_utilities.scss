@@ -110,3 +110,11 @@ select {
   background-color: $priority-1;
   color: $white-color;
 }
+
+.error-field {
+  border: 1px solid rgb(255, 0, 0);
+}
+
+.box-with-shadows {
+  box-shadow: 4px 4px 8px 8px $black-transparent;
+}

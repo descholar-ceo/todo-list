@@ -9,7 +9,6 @@ class NavBarUI {
     const navUl = document.createElement('ul');
     navUl.setAttribute('class', 'flex-horizontal-center width-100 width-md-60');
 
-    // home tab
     const navLiHome = document.createElement('li');
     navLiHome.setAttribute('class', 'padding-1 margin-x-1 active home');
     navLiHome.setAttribute('id', 'nav-item');
@@ -21,7 +20,6 @@ class NavBarUI {
     navLiHome.appendChild(homeText);
     navUl.appendChild(navLiHome);
 
-    // new project tab
     const navLiNewProject = document.createElement('li');
     navLiNewProject.setAttribute('class', 'padding-1 margin-x-1 new-project');
     navLiNewProject.setAttribute('id', 'nav-item');
@@ -33,7 +31,6 @@ class NavBarUI {
     navLiNewProject.appendChild(createNewProjectText);
     navUl.appendChild(navLiNewProject);
 
-    // new todo tab
     const navLiNewToDo = document.createElement('li');
     navLiNewToDo.setAttribute('class', 'padding-1 margin-x-1 to-do-form');
     navLiNewToDo.setAttribute('id', 'nav-item');
@@ -44,34 +41,6 @@ class NavBarUI {
     navLiNewToDo.appendChild(createNewTodoIcon);
     navLiNewToDo.appendChild(createNewTodoText);
     navUl.appendChild(navLiNewToDo);
-
-    // menu tab
-    const navLiMenu = document.createElement('li');
-    navLiMenu.setAttribute('class', 'padding-1 margin-x-1 menu dropdown-toggle');
-    navLiMenu.setAttribute('data-toggle', 'dropdown');
-    const dropDownMenu = document.createElement('div');
-    dropDownMenu.setAttribute('class', 'dropdown-menu');
-
-    const settingOption = document.createElement('li');
-    settingOption.setAttribute('id', 'nav-item');
-    settingOption.setAttribute('class', 'dropdown-item cursor-pointer');
-    settingOption.textContent = 'Settings';
-
-    const helpOption = document.createElement('li');
-    helpOption.setAttribute('id', 'nav-item');
-    helpOption.setAttribute('class', 'dropdown-item cursor-pointer');
-    helpOption.textContent = 'Help';
-    dropDownMenu.appendChild(settingOption);
-    dropDownMenu.appendChild(helpOption);
-    navLiMenu.appendChild(dropDownMenu);
-
-    const menuIcon = document.createElement('i');
-    menuIcon.setAttribute('class', 'fa fa-bars hidden-sm');
-    menuIcon.setAttribute('aria-hidden', 'true');
-    const menuText = document.createTextNode('Menu');
-    navLiMenu.appendChild(menuIcon);
-    navLiMenu.appendChild(menuText);
-    navUl.appendChild(navLiMenu);
 
     // wrap up
     navElt.appendChild(navUl);

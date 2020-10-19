@@ -1,4 +1,3 @@
-import createButton from '../helpers/global-helpers';
 import { createSingleProjectView } from '../helpers/projects-helpers';
 import ProjectUI from './project-ui';
 
@@ -23,11 +22,9 @@ class home {
     allProjects.map(curr => homeDivWrapper.appendChild(curr));
     rootElement.appendChild(homeDivWrapper);
     const btnsDiv = document.createElement('div');
-    // btnsDiv.setAttribute('c', 'parent-item');
+    // btnsDiv.setAttribute('id', 'parent-item');
     const collapseLink = document.createElement('a');
-    collapseLink.href
 
-    bvn module.exports.......................................
     btnsDiv.setAttribute('class', 'col-10 col-md-6 d-flex flex-column align-items-center flex-sm-row centered-horizontal padding-y-5 d-flex justify-content-between align-items-center');
     const btnClasses = 'new-project mt-5 btn-primary btn-sm create-project-btn p-4';
     const buttonNewProject = document.createElement('button');
@@ -47,6 +44,8 @@ class home {
     btnsDiv.appendChild(buttonCreateToDo)
 
     rootElement.appendChild(btnsDiv);
+
+    rootElement.appendChild(homeDivWrapper);
   }
 }
 

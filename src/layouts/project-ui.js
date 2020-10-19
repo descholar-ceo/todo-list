@@ -1,4 +1,4 @@
-import createButton from '../helpers/global-helpers';
+import { createButton } from '../helpers/global-helpers';
 import { createSingleTodoView, saveProject } from '../helpers/projects-helpers';
 import { getTodoBackground } from '../helpers/todo-helpers';
 
@@ -27,8 +27,15 @@ class ProjectUI {
     formDivWrapper.appendChild(formElement);
 
     const formSubmitBtnDiv = document.createElement('div');
+    const saveProjectMethod = () => {
+      if (projectNameInputField.value) {
+        return saveProject(projectNameInputField);
+      }
+      projectNameInputField.classList.add('error-field');
+      return true;
+    };
 
-    const formSubmitBtn = createButton('btn btn-sm btn-primary', 'Save Project', () => saveProject(projectNameInputField));
+    const formSubmitBtn = createButton('btn btn-sm btn-primary', 'Save Project', saveProjectMethod);
     formSubmitBtnDiv.appendChild(formSubmitBtn);
 
     formDivWrapper.appendChild(formSubmitBtnDiv);
@@ -46,7 +53,10 @@ class ProjectUI {
     let posn = 0;
     projectToDisplay.todos.forEach(curr => {
       allTodosInAProject.push(createSingleTodoView(
-        curr, [projectToDisplay.projectId, posn], getTodoBackground(curr), rootElement,
+        curr,
+        [projectToDisplay.projectId, posn],
+        getTodoBackground(curr),
+        rootElement,
       ));
       posn += 1;
     });

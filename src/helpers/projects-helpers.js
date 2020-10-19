@@ -4,7 +4,7 @@ import EditToDoUI from '../layouts/todo-ui-edit';
 
 export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   const projectDiv = document.createElement('div');
-  projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center');
+  projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center box-with-shadows');
 
   const title = document.createElement('h4');
   title.textContent = project.title;
@@ -24,12 +24,12 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   const projectId = toDoDetails[0];
   const singleTodoDiv = document.createElement('div');
   singleTodoDiv.id = `id-${projectId}-${posn}`;
-  singleTodoDiv.setAttribute('class', `width-60 cursor-pointer padding-1 margin-y-1 centered-horizontal ${bg}`);
+  singleTodoDiv.setAttribute('class', `width-60 padding-1 margin-y-1 centered-horizontal ${bg}`);
   const singleTodoBtns = document.createElement('div');
   singleTodoBtns.setAttribute('class', 'pb-2 col-12 d-flex flex-space-between');
   const editBtn = document.createElement('i');
 
-  editBtn.setAttribute('class', 'fa fa-pencil-square-o');
+  editBtn.setAttribute('class', 'fa fa-pencil-square-o cursor-pointer');
   editBtn.addEventListener('click', (evt) => {
     const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
@@ -44,7 +44,7 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
 
   const deleteBtn = document.createElement('i');
 
-  deleteBtn.setAttribute('class', 'fa fa-trash');
+  deleteBtn.setAttribute('class', 'fa fa-trash cursor-pointer');
   deleteBtn.addEventListener('click', (evt) => {
     const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
@@ -56,7 +56,7 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   singleTodoBtns.append(deleteBtn);
 
   const infoBtn = document.createElement('i');
-  infoBtn.setAttribute('class', 'fa fa-info-circle');
+  infoBtn.setAttribute('class', 'fa fa-info-circle cursor-pointer ');
   infoBtn.addEventListener('click', () => {
     mainElt.innerHTML = '';
     mainElt.append(createTodoComponent(todo, bg));
