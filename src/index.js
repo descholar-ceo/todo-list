@@ -19,10 +19,11 @@ mainWrapper();
 
 const mainElt = document.querySelector('#main-container');
 
-
 const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); };
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
-const mainHome = () => HomeUI.displayProjectsList(allProjects, mainElt, createProjectForm, createTodo);
+const mainHome = () => HomeUI.displayProjectsList(
+  allProjects, mainElt, createProjectForm, createTodo,
+);
 
 mainHome();
 if (!localStorage.getItem('projects')) {
@@ -32,12 +33,10 @@ if (!localStorage.getItem('projects')) {
 }
 
 const tabSwitcher = (moduleToDisplay) => {
-
   mainElt.innerHTML = '';
 
   moduleToDisplay();
-
-}
+};
 const allNavItems = document.querySelectorAll('#nav-item');
 const allFooterItems = document.querySelectorAll('#footer-item');
 

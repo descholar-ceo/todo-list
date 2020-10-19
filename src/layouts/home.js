@@ -23,7 +23,7 @@ class home {
     rootElement.appendChild(homeDivWrapper);
     const btnsDiv = document.createElement('ul');
     const collapseContent = document.createElement('button');
-    collapseContent.setAttribute('class', 'mb-2 btn-plus centered-horizontal mt-5 d-flex flex-column align-items-center')
+    collapseContent.setAttribute('class', 'mb-2 btn-plus centered-horizontal mt-5 d-flex flex-column align-items-center');
     const collapseLink = document.createElement('a');
     collapseLink.setAttribute('role', 'button');
     collapseLink.setAttribute('data-toggle', 'collapse');
@@ -39,7 +39,7 @@ class home {
     const buttonNewProject = document.createElement('li');
     const buttonCreateToDo = document.createElement('li');
     buttonNewProject.setAttribute('class', 'border p-3');
-    buttonNewProject.textContent = 'Add a new project'
+    buttonNewProject.textContent = 'Add a new project';
     buttonNewProject.addEventListener('click', () => {
       createProjectFunc();
     });
