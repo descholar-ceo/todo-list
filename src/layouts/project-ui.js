@@ -43,7 +43,7 @@ class ProjectUI {
     element.append(formDivWrapper);
   }
 
-  static displayIndividualProject = (rootElement, projectToDisplay) => {
+  static displayIndividualProject = (rootElement, projectToDisplay, collapseContent, btnsDiv) => {
     rootElement.innerHTML = '';
     const title = document.createElement('h4');
     title.setAttribute('class', 'text-center m-5');
@@ -53,8 +53,7 @@ class ProjectUI {
     let posn = 0;
     projectToDisplay.todos.forEach(curr => {
       allTodosInAProject.push(createSingleTodoView(
-        curr,
-        [projectToDisplay.projectId, posn],
+        curr, [projectToDisplay.projectId, posn],
         getTodoBackground(curr),
         rootElement,
       ));
@@ -62,6 +61,9 @@ class ProjectUI {
     });
 
     allTodosInAProject.map(todo => rootElement.append(todo));
+    rootElement.appendChild(collapseContent);
+    rootElement.appendChild(btnsDiv);
+
   };
 }
 

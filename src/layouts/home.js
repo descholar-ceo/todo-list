@@ -53,13 +53,15 @@ class home {
     listH1.textContent = 'List of Projects';
     homeDivWrapper.appendChild(listH1);
     const allProjects = [];
+    let collapseContent, btnsDiv;
     projects.forEach((project) => {
-      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement));
+      [collapseContent, btnsDiv] = this.collapseBtn(createProjectFunc, createTodoFunc, rootElement, projects, project);
+
+      allProjects.push(createSingleProjectView(project, ProjectUI, rootElement, collapseContent, btnsDiv));
     });
     allProjects.map(curr => homeDivWrapper.appendChild(curr));
     rootElement.appendChild(homeDivWrapper);
 
-    let collapseContent, btnsDiv;
     [collapseContent, btnsDiv] = this.collapseBtn(createProjectFunc, createTodoFunc, rootElement, projects);
     rootElement.appendChild(collapseContent);
     rootElement.appendChild(btnsDiv);
