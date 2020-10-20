@@ -23,14 +23,13 @@ class home {
     buttonNewProject.setAttribute('class', 'border p-3');
     buttonNewProject.textContent = 'Add a new project';
     buttonNewProject.addEventListener('click', (evt) => {
-      evt.preventDefault();
+      evt.stopImmediatePropagation();
       createProjectFunc();
     });
     buttonCreateToDo.setAttribute('class', 'border p-3');
     buttonCreateToDo.textContent = 'Add a todo';
     buttonCreateToDo.addEventListener('click', (evt) => {
       evt.stopImmediatePropagation();
-      evt.preventDefault();
       createTodoFunc(rootElement, projects);
     });
 

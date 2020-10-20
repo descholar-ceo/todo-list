@@ -10,7 +10,8 @@
     "debug": "webpack-dev-server  --open",
     "start": "webpack-dev-server --env production --open",
     "eslint-f": "npx eslint . --fix",
-    "stylelint-f": "npx stylelint **/*.{css,scss} --fix"
+    "stylelint-f": "npx stylelint **/*.{css,scss} --fix",
+    "run-heroku": "yarn build && NODE_ENV=production node server.js"
   },
   "keywords": [
     "ES6",
