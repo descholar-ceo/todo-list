@@ -33,9 +33,11 @@ if (!localStorage.getItem('projects')) {
 }
 
 const tabSwitcher = (moduleToDisplay) => {
+
   mainElt.innerHTML = '';
 
   moduleToDisplay();
+
 };
 const allNavItems = document.querySelectorAll('#nav-item');
 const allFooterItems = document.querySelectorAll('#footer-item');
@@ -62,6 +64,7 @@ allNavItems.forEach(item => {
     if (event.target.classList.contains('home')) {
       deleteClassActive();
       addClassActive(event.target);
+      window.location.reload();
       tabSwitcher(mainHome);
     }
     if (event.target.classList.contains('new-project')) {
