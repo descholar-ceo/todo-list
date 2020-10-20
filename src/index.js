@@ -60,9 +60,9 @@ const addClassActive = (item) => {
 allNavItems.forEach(item => {
   item.addEventListener('click', event => {
     if (event.target.classList.contains('home')) {
+      window.location.reload();
       deleteClassActive();
       addClassActive(event.target);
-      window.location.reload();
       tabSwitcher(mainHome);
     }
     if (event.target.classList.contains('new-project')) {
