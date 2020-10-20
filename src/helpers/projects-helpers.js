@@ -68,24 +68,23 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   singleTodoBtns.append(infoBtn);
 
   const singleTodoContent = document.createElement('div');
-  const checkBoxItem = document.createElement("input");
-  checkBoxItem.setAttribute("type", "checkbox");
+  const checkBoxItem = document.createElement('input');
+  checkBoxItem.setAttribute('type', 'checkbox');
   if (todo.finished === true) {
     checkBoxItem.checked = true;
   }
-  checkBoxItem.setAttribute("class", "mr-2");
+  checkBoxItem.setAttribute('class', 'mr-2');
 
   checkBoxItem.addEventListener('click', (evt) => {
     const toDoDivEl = (evt.target.parentNode).parentNode.parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
     if (evt.target.checked) {
-
       projectList.changeTodoStatus(
-        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), true
+        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), true,
       );
     } else {
       projectList.changeTodoStatus(
-        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), false
+        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), false,
       );
     }
   });

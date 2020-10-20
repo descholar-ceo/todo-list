@@ -35,8 +35,8 @@ export const createTodoComponent = (todo, bg) => {
   todoPriority.textContent = `Priority: This is the ${todo.priority}th priority`;
   todoDiv.appendChild(todoPriority);
 
-  const statusItem = document.createElement("p");
-  statusItem.setAttribute("class", "text-medium");
+  const statusItem = document.createElement('p');
+  statusItem.setAttribute('class', 'text-medium');
   statusItem.textContent = 'Status: This task is still unfnished.';
   if (todo.finished === true) {
     statusItem.textContent = 'Status: This task has been completed.';
