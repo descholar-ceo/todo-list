@@ -33,11 +33,9 @@ if (!localStorage.getItem('projects')) {
 }
 
 const tabSwitcher = (moduleToDisplay) => {
-
   mainElt.innerHTML = '';
 
   moduleToDisplay();
-
 };
 const allNavItems = document.querySelectorAll('#nav-item');
 const allFooterItems = document.querySelectorAll('#footer-item');
