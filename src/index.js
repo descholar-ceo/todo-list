@@ -38,15 +38,8 @@ const tabSwitcher = (moduleToDisplay) => {
   moduleToDisplay();
 };
 const allNavItems = document.querySelectorAll('#nav-item');
-const allFooterItems = document.querySelectorAll('#footer-item');
-
 const deleteClassActive = () => {
   allNavItems.forEach(item => {
-    if (item.classList.contains('active')) {
-      item.classList.remove('active');
-    }
-  });
-  allFooterItems.forEach(item => {
     if (item.classList.contains('active')) {
       item.classList.remove('active');
     }
