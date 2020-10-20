@@ -31,6 +31,13 @@ class ProjectsList {
     localStorage.setItem('projects', JSON.stringify(this.allProjects));
   };
 
+  changeTodoStatus = (projectId, index, currentStatus) => {
+    const todo = this.getIndivualProject(projectId).todos[index];
+    todo.finished = currentStatus;
+    this.getIndivualProject(projectId).todos[index] = todo;
+    localStorage.setItem('projects', JSON.stringify(this.allProjects));
+  };
+
   getAllTodosOfProject = (projectId) => this.getIndivualProject(projectId).todos
 
   listAll = () => this.allProjects;
