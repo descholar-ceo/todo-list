@@ -27,8 +27,8 @@ This project was done mainly for learning purposes, the aim was to practice usin
     - remove a todo from a project
     - delete a todo
 
-## Deployment
-[ToDo List app on netlify](https://gracious-edison-c209da.netlify.app)
+## Deployed Site
+[ToDo List app on heroku](https://todolister-app.herokuapp.com/)
 
 ## Running and testing it locally
 
