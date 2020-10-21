@@ -73,10 +73,29 @@ nav {
   color: $light-blue;
 }
 
-.create-project-btn {
+button {
   border-radius: 60px;
   outline: none;
   border: none;
+}
+
+.icon-plus {
+  color: #fff;
+}
+
+.btn-plus {
+  background-color: rgb(112, 124, 128);
+  border-radius: 50px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.collapse li:hover {
+  cursor: pointer;
+  background-color: $light-blue;
+  color: $white-color;
 }
 
 @import 'media-queries';

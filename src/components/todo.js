@@ -4,6 +4,7 @@ class ToDo {
     this.description = description;
     this.dueDate = dueDate;
     this.title = title;
+    this.completed = 'false';
   }
 
   get name() {
@@ -22,6 +23,10 @@ class ToDo {
     return this.description;
   }
 
+  get finished() {
+    return this.completed;
+  }
+
   set name(thisTitle) {
     this.title = thisTitle;
   }
@@ -36,6 +41,10 @@ class ToDo {
 
   set explanation(descriptStr) {
     this.description = descriptStr;
+  }
+
+  set finished(currentStatus) {
+    this.completed = currentStatus;
   }
 }
 

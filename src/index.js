@@ -14,13 +14,16 @@ const allProjects = projects.listAll();
 const mainWrapper = () => HomeUI.generateMainWrapper(content);
 
 NavBarUI.displayNavbar(content);
+
 mainWrapper();
 
 const mainElt = document.querySelector('#main-container');
 
-const mainHome = () => HomeUI.displayProjectsList(allProjects, mainElt);
 const createProjectForm = () => { ProjectUI.displayCreateProjectForm(mainElt); };
 const createTodo = () => { ToDoUI.displayCreateToDoForm(mainElt, allProjects); };
+const mainHome = () => HomeUI.displayProjectsList(
+  allProjects, mainElt, createProjectForm, ToDoUI.displayCreateToDoForm,
+);
 
 mainHome();
 if (!localStorage.getItem('projects')) {
@@ -31,10 +34,10 @@ if (!localStorage.getItem('projects')) {
 
 const tabSwitcher = (moduleToDisplay) => {
   mainElt.innerHTML = '';
+
   moduleToDisplay();
 };
 const allNavItems = document.querySelectorAll('#nav-item');
-
 const deleteClassActive = () => {
   allNavItems.forEach(item => {
     if (item.classList.contains('active')) {
@@ -50,6 +53,7 @@ const addClassActive = (item) => {
 allNavItems.forEach(item => {
   item.addEventListener('click', event => {
     if (event.target.classList.contains('home')) {
+      window.location.reload();
       deleteClassActive();
       addClassActive(event.target);
       tabSwitcher(mainHome);

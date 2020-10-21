@@ -22,19 +22,27 @@ export const createTodoComponent = (todo, bg) => {
 
   const todoDescription = document.createElement('p');
   todoDescription.setAttribute('class', 'text-1-2');
-  todoDescription.textContent = todo.description;
+  todoDescription.textContent = `Description: ${todo.description}`;
   todoDiv.appendChild(todoDescription);
 
   const todoDueDate = document.createElement('p');
   todoDueDate.setAttribute('class', 'text-1');
-  todoDueDate.textContent = todo.dueDate;
+  todoDueDate.textContent = `Due Date: ${todo.dueDate}`;
   todoDiv.appendChild(todoDueDate);
 
   const todoPriority = document.createElement('p');
   todoPriority.setAttribute('class', 'text-medium');
-  todoPriority.textContent = `This is the ${todo.priority}th priority`;
+  todoPriority.textContent = `Priority: This is the ${todo.priority}th priority`;
   todoDiv.appendChild(todoPriority);
 
+  const statusItem = document.createElement('p');
+  statusItem.setAttribute('class', 'text-medium');
+  statusItem.textContent = 'Status: This task is still unfnished.';
+  if (todo.finished === true) {
+    statusItem.textContent = 'Status: This task has been completed.';
+  }
+
+  todoDiv.appendChild(statusItem);
   return todoDiv;
 };
 

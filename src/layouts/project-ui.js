@@ -4,6 +4,7 @@ import { getTodoBackground } from '../helpers/todo-helpers';
 
 class ProjectUI {
   static displayCreateProjectForm = (element) => {
+    element.innerHTML = '';
     const formDivWrapper = document.createElement('div');
     formDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const formH1 = document.createElement('h3');
@@ -42,7 +43,7 @@ class ProjectUI {
     element.append(formDivWrapper);
   }
 
-  static displayIndividualProject = (rootElement, projectToDisplay) => {
+  static displayIndividualProject = (rootElement, projectToDisplay, collapseContent, btnsDiv) => {
     rootElement.innerHTML = '';
     const title = document.createElement('h4');
     title.setAttribute('class', 'text-center m-5');
@@ -52,8 +53,7 @@ class ProjectUI {
     let posn = 0;
     projectToDisplay.todos.forEach(curr => {
       allTodosInAProject.push(createSingleTodoView(
-        curr,
-        [projectToDisplay.projectId, posn],
+        curr, [projectToDisplay.projectId, posn],
         getTodoBackground(curr),
         rootElement,
       ));
@@ -61,6 +61,8 @@ class ProjectUI {
     });
 
     allTodosInAProject.map(todo => rootElement.append(todo));
+    rootElement.appendChild(collapseContent);
+    rootElement.appendChild(btnsDiv);
   };
 }
 

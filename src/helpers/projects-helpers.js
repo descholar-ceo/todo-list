@@ -2,7 +2,9 @@ import ProjectsList from '../components/projects-list';
 import { createTodoComponent } from './todo-helpers';
 import EditToDoUI from '../layouts/todo-ui-edit';
 
-export const createSingleProjectView = (project, ProjectUI, rootElement) => {
+export const createSingleProjectView = (
+  project, ProjectUI, rootElement, collapseContent, btnsDiv,
+) => {
   const projectDiv = document.createElement('div');
   projectDiv.setAttribute('class', 'project-container cursor-pointer pl-4 pr-4  d-flex justify-content-between align-items-center box-with-shadows');
 
@@ -14,12 +16,14 @@ export const createSingleProjectView = (project, ProjectUI, rootElement) => {
   toDos.textContent = `${project.todos.length} todo(s)`;
   projectDiv.appendChild(toDos);
   projectDiv.addEventListener('click', () => {
-    ProjectUI.displayIndividualProject(rootElement, project);
+    ProjectUI.displayIndividualProject(rootElement, project, collapseContent, btnsDiv);
   });
+
   return projectDiv;
 };
 
 export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
+  const projectList = new ProjectsList();
   const posn = toDoDetails[1];
   const projectId = toDoDetails[0];
   const singleTodoDiv = document.createElement('div');
@@ -33,7 +37,7 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   editBtn.addEventListener('click', (evt) => {
     const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
-    const project = new ProjectsList().getIndivualProject(
+    const project = projectList.getIndivualProject(
       parseInt(toDoDivElId[1], 10),
     );
     const toDoIndex = parseInt(toDoDivElId[2], 10);
@@ -48,7 +52,7 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   deleteBtn.addEventListener('click', (evt) => {
     const toDoDivEl = (evt.target.parentNode).parentNode;
     const toDoDivElId = toDoDivEl.id.split('-');
-    new ProjectsList().deleteTodoFromProject(
+    projectList.deleteTodoFromProject(
       parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10),
     );
     toDoDivEl.remove();
@@ -64,10 +68,33 @@ export const createSingleTodoView = (todo, toDoDetails, bg, mainElt) => {
   singleTodoBtns.append(infoBtn);
 
   const singleTodoContent = document.createElement('div');
+  const checkBoxItem = document.createElement('input');
+  checkBoxItem.setAttribute('type', 'checkbox');
+  if (todo.finished === true) {
+    checkBoxItem.checked = true;
+  }
+  checkBoxItem.setAttribute('class', 'mr-2');
+
+  checkBoxItem.addEventListener('click', (evt) => {
+    const toDoDivEl = (evt.target.parentNode).parentNode.parentNode;
+    const toDoDivElId = toDoDivEl.id.split('-');
+    if (evt.target.checked) {
+      projectList.changeTodoStatus(
+        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), true,
+      );
+    } else {
+      projectList.changeTodoStatus(
+        parseInt(toDoDivElId[1], 10), parseInt(toDoDivElId[2], 10), false,
+      );
+    }
+  });
   singleTodoContent.setAttribute('class', 'col-12 d-flex flex-space-between');
   const todoTitle = document.createElement('div');
-  todoTitle.textContent = `ToDo: ${todo.title}`;
   const todoDueDate = document.createElement('div');
+  todoTitle.appendChild(checkBoxItem);
+  const textTitle = document.createTextNode(`ToDo: ${todo.title}`);
+  todoTitle.appendChild(textTitle);
+
   todoDueDate.textContent = `DueDate: ${todo.dueDate}`;
 
   singleTodoContent.appendChild(todoTitle);

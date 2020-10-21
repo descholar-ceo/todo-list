@@ -3,6 +3,7 @@ import { saveTodo } from '../helpers/todo-helpers';
 
 class ToDoUI {
   static displayCreateToDoForm = (element, projects) => {
+    element.innerHTML = '';
     const formDivWrapper = document.createElement('div');
     formDivWrapper.setAttribute('class', 'col-10 col-md-6 centered-horizontal padding-y-5');
     const formH1 = document.createElement('h3');
@@ -36,12 +37,14 @@ class ToDoUI {
     projectSelect.setAttribute('id', 'todo-project');
     const todoProjectLabel = document.createElement('label');
     todoProjectLabel.textContent = 'ToDo Project: ';
+
     projects.forEach((project) => {
       const choice = document.createElement('option');
       choice.value = project.projectId;
       choice.textContent = project.title;
       projectSelect.appendChild(choice);
     });
+
     todoNameDiv.appendChild(todoProjectLabel);
     todoNameDiv.appendChild(chooseProject);
 
